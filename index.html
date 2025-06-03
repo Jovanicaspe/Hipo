@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <footer>
+        <p>&copy; 2024 <strong>Jovani Caspe, Rhealyn Eway</p>
+    </footer>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            height: 100vh;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .container {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.2);
+            width: 380px;
+            animation: fadeInUp 1s ease;
+            transition: all 00.3s ease-in-out;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+        
+        .container:hover {
+            box-shadow: 0 0 60px rgba(0, 255, 136, 0.35);
+            transform: translateY(-3px);
+        }
+        
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .container h2 {
+            text-align: center;
+            color: #00ff88;
+            margin-bottom: 30px;
+            font-size: 28px;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px #00ff88;
+        }
+        
+        .form-group {
+            position: relative;
+            margin-bottom: 28px;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 14px 12px;
+            background: transparent;
+            border: 2px solid #00ff88;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #00ffa2;
+            box-shadow: 0 0 10px #00ff88;
+        }
+        
+        .form-group label {
+            position: absolute;
+            top: 50%;
+            left: 14px;
+            transform: translateY(-50%);
+            color: #aaa;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .form-group input:focus + label, .form-group input:valid + label, .form-group textarea:focus + label, .form-group textarea:valid + label {
+            top: -12px;
+            left: 10px;
+            font-size: 12px;
+            color: #00ff88;
+            background: rgba(28, 28, 28, 0.75);
+            padding: 0 5px;
+        }
+        
+        .form-group textarea {
+            resize: none;
+            height: 100px;
+        }
+        
+        .form-group button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(to right, #00ff88, #00cc66);
+            color: #000;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.4s;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
+        }
+        
+        .form-group button:hover {
+            background: linear-gradient(to right, #00cc66, #00ff88);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+</style>
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" required></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit">Send Message</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        const emailBody = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+        const mailtoLink = `mailto:jovanicaspe39@gmail.com=Contact Form Submission&body=${encodeURIComponent(emailBody)}`;
+
+        window.location.href = mailtoLink;
+    });
+</script>
+
+</body>
+</html>
